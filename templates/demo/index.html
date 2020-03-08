@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>Bhawan</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{%static 'global.css' %}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body onload="getFunction()">
+		<div class="animate">
+			<ul>
+				<li>b</li>
+				<li>h</li>
+				<li>A</li>
+				<li>w</li>
+				<li>a</li>
+				<li>N</li>
+			</ul>
+		</div>
+		<section>
+		
+		<div class="controller title">
+			<div class="text">
+				<h2>Bhawan Controller</h2>
+			</div>
+		</div>
+		<div class="controller" id="divs1" style="display : none;"  >
+			<div>
+				<button class="button" id="s1" style="display : none;"  onclick="putFunction(id)" href="#s1">LIGHT</button>
+			</div>
+		</div>
+
+		<div class="controller" id="divs2" style="display : none;" >
+			<div>
+				<button class="button" id="s2" style="display : none;"  onclick="putFunction(id)" href="#s2">LIGHT</button>
+			</div>
+			<div class="rangeslide">
+				<input type="range" id="d1" style="display : none;" onchange="putFunction(id)" class="range" min="0" max="255">
+			</div>
+		</div>
+		
+		<div class="controller" id="divs3" style="display : none;" >
+			<div>
+				<button class="button" id="s3" style="display : none;"  onclick="putFunction(id)" href="#s3">LIGHT</button>
+			</div>
+		</div>
+		
+		<div class="controller" id="divs4" style="display : none;" >
+			<div>
+				<button class="button" id="s4" style="display : none;"  onclick="putFunction(id)" href="#s4">LIGHT</button>
+			</div>
+			<div class="rangeslide">
+				<input type="range" id="d2" style="display : none;" onchange="putFunction(id)" class="range" min="0" max="255">
+			</div>
+		</div>
+		
+		<div class="controller" id="divs5" style="display : none;" >
+			<div>
+				<button class="button" id="s5" style="display : none;"  onclick="putFunction(id)" href="#s5">LIGHT</button>
+			</div>
+		</div>
+		
+		<div class="controller" id="divs6" style="display : none;" >
+			<div>
+				<button class="button" id="s6" style="display : none;"  onclick="putFunction(id)" href="#s6">LIGHT</button>
+			</div>
+			<div class="rangeslide">
+				<input type="range" id="d3" style="display : none;" onchange="putFunction(id)" class="range" min="0" max="255">
+			</div>
+		</div>
+		
+		<div class="controller" id="divs7" style="display : none;" >
+			<div>
+				<button class="button" id="s7" style="display : none;"  onclick="putFunction(id)" href="#s7">LIGHT</button>
+			</div>
+		</div>
+		
+		<div class="controller" id="divs8" style="display : none;" >
+			<div>
+				<button class="button" id="s8" style="display : none;"  onclick="putFunction(id)" href="#s8">LIGHT</button>
+			</div>
+			<div class="rangeslide">
+				<input type="range" id="d4" style="display : none;" onchange="putFunction(id)" class="range" min="0" max="255">
+			</div>
+		</div>
+		
+		<div class="controller" id="divs9" style="display : none;" >
+			<div>
+				<button class="button" id="s9" style="display : none;"  onclick="putFunction(id)" href="#s9">LIGHT</button>
+			</div>
+		</div>
+		
+		<div class="controller" id="divs10" style="display : none;" >
+			<div>
+				<button class="button" id="s10" style="display : none;"  onclick="putFunction(id)" href="#s10">LIGHT</button>
+			</div>
+			<div class="rangeslide">
+				<input type="range" id="d5" style="display : none;" onchange="putFunction(id)" class="range" min="0" max="255">
+			</div>
+		</div>
+		
+		</section>
+		
+		<script>
+			$(window).on("load",function(){
+				$(".animate").fadeOut("slow");
+			});
+		function putFunction(id)
+        {
+            var putdata;
+            if(id[0]==="s")
+            {
+                if(document.getElementById(id).className == "button pushed")
+                    putdata = false;
+                else
+                    putdata = true;
+                var dataobj={};
+                dataobj[id]=putdata;
+            }
+            else if(id[0]==="d")
+            {
+                putdata = document.getElementById(id).value ;
+                var dataobj={};
+                dataobj[id]=putdata;
+            }
+            $.ajax({
+            url: "http://"+location.host+"/user/"+{{user.id}}+"/",
+            type: "PUT",
+            contentType: 'application/json',
+            data: JSON.stringify(dataobj),
+            success: function(response)
+            {
+                
+                getFunction();
+            }
+            });
+            
+        }
+        function getFunction() {
+
+            $.ajax({
+            url: "http://"+location.host+"/user/"+{{user.id}}+"/",
+            type: "GET",
+            success: function(response)
+            {
+                //console.log(response);
+                for(var i in response )
+                {
+                    
+                    if(i=="id")
+                        continue;
+                    else if(i[0]=="s")
+                    {
+                    var s1value = response[i];
+                    document.getElementById("div"+i).style.display = "block";
+                    document.getElementById(i).style.display = "inline-block";
+                    if(s1value===true)
+                    {
+                        document.getElementById(i).className = "button pushed";
+                    	document.getElementById(i).innerHTML="Switch "+i.slice(1);
+                    }
+                    else
+                    {
+                        document.getElementById(i).className = "button";
+                        document.getElementById(i).innerHTML="Switch "+i.slice(1);
+                    }
+                    
+                    }
+                    else if(i[0]=="d")
+                    {
+                        document.getElementById(i).style.display = "block";
+                        document.getElementById(i).value = response[i];
+                    }
+                }
+            }
+            });
+        }
+		</script>
+	</body>
+</html>
