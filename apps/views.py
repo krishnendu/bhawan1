@@ -32,3 +32,5 @@ def navbar(req):
     }
     return nav
 
+def home(req):
+    return render(req,"home/index.html",navbar(req))

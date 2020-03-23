@@ -1,0 +1,201 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+body
+{
+	background: #f7e96d;
+}
+body footer .page
+{
+	background-color: #00452a;
+}
+.yeaf
+{
+	position: fixed;
+	background: #ffb300;
+	box-shadow: none;
+	z-index: 5;
+}
+.yeaf:after
+{
+	background: blue;
+}
+
+section
+{
+	width: 90%;
+	margin: auto;
+	align-items: center;
+	box-sizing: border-box;
+	margin-top: 100px;
+	margin-bottom: 120px;
+}
+section h2
+{
+	color: #573d00;
+}
+.carousel.carousel-slider
+{
+	height: 100vh;
+	min-height: 100vh;
+	max-height: 100vh;
+	line-height: 8vh;
+}
+.carousel.carousel-slider img
+{
+	height: 100%;
+	object-fit: cover;
+}
+.carousel-fixed-item h2
+{
+	color: #fff;
+	font-size: 7vw;
+	padding-bottom: 10vh;
+}
+.del
+{
+	text-align: right;
+}
+
+/*nav start*/
+
+.navnav {
+  background: #222;
+  padding: 5px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  width: 100vw;
+}
+.navnav .navmenu {
+  list-style-type: none;
+  text-decoration: none;
+}
+.navnav a {
+  color: white;
+  text-decoration: none;
+}
+.navnav a:hover {
+  color: #006d6d;
+}
+.navlogo a:hover {
+  text-decoration: none;
+}
+.navmenu li {
+  font-size: 16px;
+  padding: 15px 20px;
+  white-space: nowrap;
+}
+.navlogo a,
+.navtoggle i {
+  color: white;
+  font-size: 30px;
+}
+
+
+/* Mobile menu */
+.navmenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.navlogo{
+	margin-right: auto;
+}
+.navitem {
+  width: 100px;
+  text-align: center;
+  display: block;
+}
+
+
+
+/* Navbar Toggle */
+.navtoggle {
+  display: none;
+  cursor:pointer;
+}
+
+.navbutton
+{
+	width: auto;
+}
+.navbutton a {
+  width: 100%;
+  padding: 6px 15px 7.5px 15px;
+  background: teal;
+  border: 1px #006d6d solid;
+  border-radius:50em;
+}
+.navbutton.navsecondary a {
+  background: transparent;
+}
+.navbutton a:hover {
+  text-decoration: none;
+  transition:all .25s;
+}
+.navbutton:not(.navsecondary) a:hover {
+  background: #006d6d;
+  border-color: #005959;
+}
+.navbutton a:hover {
+  color: #ddd;
+}
+/*.navmenu li.navbutton {
+  padding-right: 0;
+}*/
+
+
+/* Tablet menu */
+@media all and (max-width: 900px) {
+  .navitem.navactive,
+  .navitem.navbutton.navactive {
+    width: 100%;
+    display: block;
+  }
+  .navlogo.navactive{
+    width:  calc(100% - 132px);
+    margin: 0 66px 0 0;
+  }
+  .navitem{
+  	display: none;
+  }
+  .navlogo{
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+  .navitem.navbutton {
+    width: auto;
+    display: block;
+  }
+  .navitem.navlast {
+    border-bottom: 1px #444 solid;
+  }
+  .navtoggle{
+  	display: block;
+  }
+
+}
+
+/* Mobile view */
+@media all and (max-width: 600px) {
+  .navlogo {
+    width:  calc(100% - 132px);
+    margin: 0 66px 0 0;
+  }
+  .navitem.navbutton {
+    display: none;
+  }
+}
+/*nav end*/
+
+
+.container
+{
+    margin: 0 auto 70px auto;
+}

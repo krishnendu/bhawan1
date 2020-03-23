@@ -6,13 +6,16 @@ from .models import Switch
 from apps.models import Account
 from .serializers import SwitchSerializer
 from django.views.decorators.csrf import csrf_exempt
+from apps.views import navbar
 
 def profile(req):
     if not req.user.is_authenticated :
         return redirect('%s?next=%s' % (settings.LOGIN_URL, req.path))
-    obj=list(Switch.objects.filter(user__id=req.user.id).values())
+    obj=list(Switch.objects.filter(user__id=req.user.id).values())[0]
     #print(obj[0])
-    return render(req,'demo/index.html',{ "user" : obj[0]})
+    obj1={ "user" : obj}
+    obj1.update(navbar(req))
+    return render(req,'demo/index.html',obj1)
 
 def remove_none(obj):
     newobj={}

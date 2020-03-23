@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{%static 'home/materialize.css' %}">
+
+{% endblock %}
+
+{% block content %}
+		<!--------- Image slider --------------->
+		<div class="carousel carousel-slider">
+			<div class="carousel-fixed-item center">
+				<h2></h2>
+				<a class="waves-effect waves-teal btn  yellow darken-4" href="#">Learn More
+					<i class="material-icons right">arrow_forward</i>
+				</a>
+			</div>
+			<a class="carousel-item" href="#"><img src="{%static 'home/irot2.png' %}"></a>
+			<a class="carousel-item" href="#"><img src="{%static 'home/pd2.jpg' %}"></a>
+			<a class="carousel-item" href="#"><img src="{%static 'home/xyza.jpg' %}"></a>
+			<a class="carousel-item" href="#"><img src="{%static 'home/packag.jpg' %}"></a>
+		</div>
+		<!------------- floating buttoteon ------------>
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-large orange darken-3">
+				<i class="large material-icons">mode_edit</i>
+			</a>
+			<ul>
+				<li><a class="btn-floating red "><i class="material-icons">insert_chart</i></a></li>
+				<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+				<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+				<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+			</ul>
+		</div>
+		<!----------- about us -------------->
+		<section>
+			<h2 class="center-align">About Bhawan Home Automation</h2>
+			<div class="row">
+				<div class="col s4 l4 m4 "></div>
+				<div class="col s4 l4 m4 "> <hr> </div>
+			</div>
+			<div class="center-align">
+				<p><br>Our device can be installed without changing the existing electrical setup, upgrading homes in just about an hour.
+                   Bhawan home Automation is an innovative solution to make your home remotely control in cheap. This is an IoT product so it can be controlled from anywhere. Our Team focuses on how we can make people's life easy
+                </p>
+				</div>
+				<br><br>
+			<div class="row valign-wrapper">
+				<div class="col l6 m6 s12 ">
+					<img src="{%static 'home/iriot.png' %}" class="responsive-img">
+				</div>
+				<div class="col l4 m6 s12">
+					<h4>IR+ Home automation</h4>
+					<p>In this present era everything is automized right from home to industrial area. A home automation system integrateselectrical devices in a house with each other, in this competative world and busy schedule human cannot spare time to perform his daily activities manualy. The most common thing that he needs to doare switching ON/OFF the loads without much human involvement.</p>
+					<h4 style="color: #04a4f4;">₹1499/- </h4>
+					<a class="waves-effect waves-teal btn  yellow darken-4" href="#">Learn More
+					</a>
+				</div>
+				<div class="col l2">
+				</div>
+			</div>
+			<div class="row valign-wrapper">
+				<div class="del col l7 m6 s12">
+					<h4>Automation With App</h4>
+					<p> Operate appliances like TV, Fridz, AC, Lights Fan from smartphones<br> Google assistant and bhawan app.You can turn on turn <br>off as well as dim and monitor the speed of fan/ac appliances.</p>
+					<h4 style="color: #04a4f4;">₹1199/- </h4>
+					<a class="waves-effect waves-teal btn  yellow darken-4" href="#">Learn More
+					</a>
+				</div>
+				<div class="col l5 m7 s12 ">
+					<img src="{%static 'home/xyza.png' %}" class="responsive-img">
+				</div>
+			</div>
+			<div class="row valign-wrapper">
+				<div class="col l5 m6 s12 ">
+					<img src="{%static 'home/pd2.png' %}" class="responsive-img">
+				</div>
+				<div class="col l7 m6 s12">
+					<h4>Bhawan Touch pannels</h4>
+					<p>The Smart Home deserves better than an ordinary light switch. Bhawan touch panels are a one-of-a-kind collection of switches, dimmers, and scene controllers that will transform walls from boring to absolutely breathtaking<br>Live feedback on app on manually operation.
+						So that you can know which appliance is running in present time and you will be able to turn on/off that by time.<br><br>Timer function also available.
+						<br>Suppose you want to heat water for 10min. </p>
+					<h4 style="color: #04a4f4;">₹1999/- </h4>
+					<a class="waves-effect waves-teal btn  yellow darken-4" href="#">Learn More
+					</a>
+				</div>
+			</div>
+			<div class="row valign-wrapper">
+				<div class="del col l7 m6 s12">
+					<h4>Bhawan Ir Remote</h4>
+					<p>You can use this this Remote to operate your Appliances this is an <br>IoT Remote feedback will be send to your app when you are using it. <br>Pay extra ₹79 for extra IR REMOTE</p>
+					<h4 style="color: #04a4f4;">₹79/- </h4>
+					<a class="waves-effect waves-teal btn  yellow darken-4" href="#">Learn More
+					</a>
+				</div>
+				<div class="col l5 m7 s12 ">
+					<img src="{%static 'home/Remote.png' %}" class="responsive-img">
+				</div>
+			</div>
+			<div class="row valign-wrapper">
+				<div class="col l5 m6 s12 ">
+					<img src="{%static 'home/packag.png' %}" class="responsive-img">
+				</div>
+				<div class="col l7 m6 s12">
+					<h4>Door step delivery order Now</h4>
+					<p>Free shipping across India.<br>
+					Customised product is also available specilly for you.
+					</p>
+					<h4 style="color: #04a4f4;">Contact: +91 86172-86972, 9547456590, 7003033085 </h4>
+					<a class="waves-effect waves-teal btn  yellow darken-4" href="#">Learn More
+					</a>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2 class="center-align">Connection</h2>
+			<div class="row">
+				<div class="col s4 l4 m4 "></div>
+				<div class="col s4 l4 m4 "> <hr> </div>
+			</div>
+			<div class="row" >
+				<a href="#">
+					<img src="{%static 'home/tat.png' %}" class="responsive-img">
+				</a>
+			</div>
+		</section>
+		<!----- Cards-------->
+		<section>
+			<h2 class="center-align">Products</h2>
+			<div class="row">
+				<div class="col s4 l4 m4 "></div>
+				<div class="col s4 l4 m4 "> <hr> </div>
+			</div>
+			<div class="row">
+				<div class="col s12 m6 l4">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="{%static 'home/iriot.jpg' %}">
+							<span class="card-title"></span>
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">IR With IoT<i class="material-icons right">more_vert</i></span>
+							<div class="card-action">
+								<a href="#">learn more</a>
+							</div>
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4">IR With IoT <i class="material-icons right">close</i></span>
+							<p>Allow you to control your home app with app and also with IR remote so you don't need to get up in the freezing winter.<br>Price ₹1499.</p>
+							<p><a href="#">Click Here</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l4">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="{%static 'home/device.jpg' %}">
+							<span class="card-title"></span>
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Home Automation With IOT<i class="material-icons right">more_vert</i></span>
+							<div class="card-action">
+								<a href="#">learn more</a>
+							</div>
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4">Home Automation With IOT<i class="material-icons right">close</i></span>
+							<p>This device is Internet based you can controle your home appliances with your smartphones<br>4Switch available here <br>Price ₹999.</p>
+							<p><a href="#">Click Here</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l4">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="{%static 'home/pd2.jpg' %}">
+							<span class="card-title"></span>
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Touch Panel<i class="material-icons right">more_vert</i></span>
+							<div class="card-action">
+								<a href="#">learn more</a>
+							</div>
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4">BHAWAN Touch Panel<i class="material-icons right">close</i></span>
+							<p>We have full range of Capacitive Touch Automation products.Allow you to control your home appliance with touch.<br>Price ₹1999.</p>
+							<p><a href="#">Click Here</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l4">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="{%static 'home/xyza.jpg' %}">
+							<span class="card-title"></span>
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Automation With dimmer<i class="material-icons right">more_vert</i></span>
+							<div class="card-action">
+								<a href="#">learn more</a>
+							</div>
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4">Automation With dimmer<i class="material-icons right">close</i></span>
+							<p>Operate appliances like TV, Fridz, AC, Lights Fan from smartphones Google assistant and bhawan app.4Switch 1fan regulator/dimmer<br>Price ₹1199.</p>
+							<p><a href="#">Click Here</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l4">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="{%static 'home/demo.jpg' %}">
+							<span class="card-title"></span>
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Easy Internet Connect<i class="material-icons right">more_vert</i></span>
+							<div class="card-action">
+								<a href="#">learn more</a>
+							</div>
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4">Connect To Internet<i class="material-icons right">close</i></span>
+							<p>It is Very easy to connect to internet use your spartphone to and connect BHAWAN WiFi available then Put your WiFi Credential. It will Auotomatically connect to internet.</p>
+							<p><a href="#">Click Here</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l4">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="{%static 'home/irdev.jpg' %}">
+							<span class="card-title"></span>
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">IR-Home-Automation<i class="material-icons right">more_vert</i></span>
+							<div class="card-action">
+								<a href="#">learn more</a>
+							</div>
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4">IR-Home-Automation<i class="material-icons right">close</i></span>
+							<p>If you don't Have internet to your home you Can buy this to remotely control your appliance Using the IR remote.<br>Price ₹999</p>
+							<p><a href="#">Click here</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+{% endblock %}

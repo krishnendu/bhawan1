@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{%static 'home/materialize.css' %}">
+
+{% endblock %}
 {% block content %}
-  
+
   <form class="container" method="post">{% csrf_token %}
-  <h1>Create an account</h1>
+  <h4>Create an account</h4>
   <div class="form-row">
-    
+
 
     <div class="form-group col-md-6">
       <label for="inputName4">First Name</label>
@@ -51,9 +56,9 @@
         <div class="alert alert-danger" role="alert">
             {{ message }}
         </div>
-    {% endfor %} 
+    {% endfor %}
 {% endif %}
-  
+
   <button type="submit" class="btn btn-primary">Sign up</button>
   <a class="" href="/login">
       Already have an account ? Login
