@@ -2,21 +2,22 @@ from django.shortcuts import render,redirect
 from django.conf import settings
 from django.http import HttpRequest , JsonResponse , HttpResponse
 from rest_framework.parsers import JSONParser
-from .models import Switch
+#from .models import Switch
 from apps.models import Account
-from .serializers import SwitchSerializer
+#from .serializers import SwitchSerializer
 from django.views.decorators.csrf import csrf_exempt
 from apps.views import navbar
-
+ 
 def profile(req):
     if not req.user.is_authenticated :
         return redirect('%s?next=%s' % (settings.LOGIN_URL, req.path))
-    obj=list(Switch.objects.filter(user__id=req.user.id).values())[0]
-    #print(obj[0])
-    obj1={ "user" : obj}
+    obj=list(Account.objects.filter(id=req.user.id).values('id','token'))[0]
+    obj1={ "user" : obj, "switchcounter" : range(1,11)}
     obj1.update(navbar(req))
     return render(req,'demo/index.html',obj1)
 
+
+"""
 def remove_none(obj):
     newobj={}
     for i in obj:
@@ -92,3 +93,4 @@ def switch(req,id):
 
     else :
         return JsonResponse({},status=400)
+"""

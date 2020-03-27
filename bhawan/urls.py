@@ -22,7 +22,8 @@ from restswitch.views import profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', include('restswitch.urls')),
+    path('api/', include('restapi.urls')),
+    #path('user/', include('restswitch.urls')),
     path('profile/', profile , name='profile'),
     path('', include('login.urls')),
     path('', include('register.urls')),

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, logout ,login as log_in
-from .models import Account,ProfilePicture,user
+from .models import Account,user
 from django.core.exceptions import ValidationError
 from django.conf import settings
 from django.contrib import messages

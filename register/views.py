@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from apps.models import Account,user
 from apps.views import navbar
-from restswitch.models import Switch
+from restapi.models import SwitchJson
 # Create your views here.
 
 def register(req):
@@ -27,7 +27,7 @@ def register(req):
             user1.phone_number=phone_number
             user1.set_password(password)
             user1.save()
-            obj1=Switch(id=user1.id,user=user1)
+            obj1=SwitchJson(id=user1.id,user=user1)
             obj1.save()
             return redirect('/login')
     else:

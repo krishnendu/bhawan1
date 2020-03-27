@@ -4,6 +4,7 @@
     padding:0;
     box-sizing: border-box;
 	font-family: 'Lato', sans-serif;
+	//overflow-x:hidden;
 }
 body
 {
@@ -24,7 +25,10 @@ body footer .page
 {
 	background: blue;
 }
-
+.grey-text.text-darken-4
+{
+    min-height: 64px;
+}
 section
 {
 	width: 90%;
@@ -41,14 +45,14 @@ section h2
 .carousel.carousel-slider
 {
 	height: 100vh;
-	min-height: 100vh;
+	/*min-height: 100vh;*/
 	max-height: 100vh;
 	line-height: 8vh;
 }
 .carousel.carousel-slider img
 {
 	height: 100%;
-	object-fit: cover;
+	object-fit: scale-down;
 }
 .carousel-fixed-item h2
 {

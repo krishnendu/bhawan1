@@ -1,13 +1,14 @@
+"""
 from django.db import models
 from apps.models import Account
 from datetime import datetime
-import jsonfield
+#import jsonfield
 
 # Create your models here.
 
 class Switch(models.Model):
     user=models.OneToOneField(Account , on_delete=models.CASCADE , null=True)
-    data = jsonfield.JSONField()
+    #data = jsonfield.JSONField()
     s1=models.NullBooleanField(default=None ,null=True)
     s2=models.NullBooleanField(default=None ,null=True)
     s3=models.NullBooleanField(default=None ,null=True)
@@ -29,3 +30,4 @@ class Switch(models.Model):
             return self.user.username
         except:
             return str(self.id)
+"""

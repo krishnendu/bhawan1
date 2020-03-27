@@ -1,18 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from datetime import datetime
+import uuid
 #from imagekit.models import ProcessedImageField
 #from imagekit.processors import ResizeToFill
 # Create your models here.
-
-
-class ProfilePicture(models.Model):
-    img = models.ImageField(upload_to='profilepic/',default='profilepic/default.jpg',)#ProcessedImageField(upload_to='profilepic/',processors=[ResizeToFill(100,100)] , default='profilepic/default.jpg', format='JPEG' , options ={'quality': 60})
-
-    def __str__(self):
-        return (Account.objects.get(id=self.id).email)
-
-
 
 
 
@@ -50,6 +42,7 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
+    token = models.UUIDField(unique=True,default=uuid.uuid4)
     email = models.EmailField(verbose_name='email' , max_length=60 , unique=True)
     username = models.CharField(max_length=60 , unique=True)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
@@ -69,7 +62,7 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     def __str__(self):
-        return (self.first_name+' '+self.last_name)
+        return (self.username)
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
@@ -91,8 +84,3 @@ class user(models.Model):
 
     
 
-class Friend(models.Model):
-    friends = models.ManyToManyField(user)
-    user = models.ForeignKey(Account ,on_delete=models.CASCADE , null=True)
-    def __str__(self):
-        return (Account.objects.get(id=self.user.id).username)

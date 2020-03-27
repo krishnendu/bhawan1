@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mathfilters %}
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{%static 'switch.css' %}">
@@ -24,6 +25,26 @@
 				<h2>Bhawan Controller</h2>
 			</div>
 		</div>
+		{% for i in switchcounter %}
+			{% if i|divisibleby:"2" %}
+				<div class="controller" id="divs{{ i }}" style="display : none;" >
+					<div>
+						<button class="button" id="s{{ i }}" style="display : none;"  onclick="putFunction(id)" href="#s{{ i }}">LIGHT</button>
+					</div>
+					<div class="rangeslide">
+						<input type="range" id="d{{ i|intdiv:2 }}" style="display : none;" onchange="putFunction(id)" class="range" min="0" max="255">
+					</div>
+				</div>		
+			{% else %}
+				<div class="controller" id="divs{{ i }}" style="display : none;"  >
+					<div>
+						<button class="button" id="s{{ i }}" style="display : none;"  onclick="putFunction(id)" href="#s{{ i }}">LIGHT</button>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+
+<!--
 		<div class="controller" id="divs1" style="display : none;"  >
 			<div>
 				<button class="button" id="s1" style="display : none;"  onclick="putFunction(id)" href="#s1">LIGHT</button>
@@ -98,10 +119,12 @@
 				<input type="range" id="d5" style="display : none;" onchange="putFunction(id)" class="range" min="0" max="255">
 			</div>
 		</div>
-
+-->
 		</section>
 
 		<script>
+		const token="{{ user.token.hex }}";
+		const restapiurl="http://"+location.host+"/api/user/"+token+"/";
 			$(window).on("load",function(){
 				$(".animate").fadeOut("slow");
 			});
@@ -119,19 +142,46 @@
             }
             else if(id[0]==="d")
             {
-                putdata = document.getElementById(id).value ;
+                putdata = parseInt(document.getElementById(id).value) ;
                 var dataobj={};
                 dataobj[id]=putdata;
             }
             $.ajax({
-            url: "https://"+location.host+"/user/"+{{user.id}}+"/",
-            type: "PUT",
+            url: restapiurl,
+            type: "PATCH",
             contentType: 'application/json',
             data: JSON.stringify(dataobj),
             success: function(response)
             {
 
-                getFunction();
+                for(var i in response )
+                {
+
+                    if(i=="id")
+                        continue;
+                    else if(i[0]=="s")
+                    {
+                    var s1value = response[i];
+                    document.getElementById("div"+i).style.display = "block";
+                    document.getElementById(i).style.display = "inline-block";
+                    if(s1value===true)
+                    {
+                        document.getElementById(i).className = "button pushed";
+                    	document.getElementById(i).innerHTML="Switch "+i.slice(1);
+                    }
+                    else
+                    {
+                        document.getElementById(i).className = "button";
+                        document.getElementById(i).innerHTML="Switch "+i.slice(1);
+                    }
+
+                    }
+                    else if(i[0]=="d")
+                    {
+                        document.getElementById(i).style.display = "unset";
+                        document.getElementById(i).value = response[i];
+                    }
+                }
             }
             });
 
@@ -139,7 +189,7 @@
         function getFunction() {
 
             $.ajax({
-            url: "https://"+location.host+"/user/"+{{user.id}}+"/",
+            url: restapiurl,
             type: "GET",
             success: function(response)
             {
