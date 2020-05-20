@@ -28,7 +28,7 @@ et-xmlfile==1.0.1
 gcloud==0.17.0
 googleapis-common-protos==1.51.0
 hiredis==1.0.1
-httplib2==0.17.0
+httplib2==0.18.0
 hyperlink==19.0.0
 idna==2.8
 incremental==17.5.0
