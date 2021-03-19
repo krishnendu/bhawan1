@@ -22,7 +22,7 @@ django-cropperjs==0.0.5
 django-import-export==2.0.1
 django-jsonfield==1.4.0
 django-online-users==0.3
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 docker==4.1.0
 et-xmlfile==1.0.1
 gcloud==0.17.0
